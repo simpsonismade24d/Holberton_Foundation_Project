@@ -1,7 +1,7 @@
 
 <?php
-$success = 0;
-$user = 0;
+ $user = 0;
+ $success = 0;
 
 if($_SERVER['REQUEST_METHOD']=='POST'){
     include 'connection.php';
@@ -17,13 +17,14 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     if($num>0){
       $user = 1;
     }else{
-       $hash = password_hash($password,PASSWORD_DEFAULT);
-       $sql="insert into portfolio(username,email,country,password)values('$username','$email','$country','$hash')";
+       $hashed_password = password_hash($password,PASSWORD_DEFAULT);
+       $sql="insert into portfolio(username,email,country,password)values('$username','$email','$country','$hashed_password')";
        $result=mysqli_query($con,$sql); 
 
        if($result){
           $success = 1;
           header('location:login.php');
+          echo "Registration successful, you can now log in";
           }else{
            die(mysqli_error($con));
     }
@@ -70,8 +71,8 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 if($user){
     echo '<div class="alert alert-danger" role="alert">
     <strong>Oop! sorry.. that username already exists, try to user another one.</strong>
-  </div>';
-}
+   </div>';
+  }
   ?> 
 
 

@@ -1,26 +1,36 @@
 <?php
-$login_success =0;
-$login_error = 0;
+$login_success= 0;
 
 if($_SERVER['REQUEST_METHOD']=='POST'){
     include 'connection.php';
     $username=$_POST['username'];
     $password=$_POST['password'];
 
-   $sql = "select * from portfolio where username = '$username'
-   and password ='$password'"; 
-   $result=mysqli_query($con,$sql);
-   if($result){
-    $num=mysqli_num_rows($result);
-    if($num>0){
-     $login_success = 1;
-     session_start();
-     $_SESSION['username'] = $username;
-     header('location:homepage.php');
-    }else{
-      $login_error = 1;
+//$sql = "select * from portfolio where username = '$username'
+//and password ='$password'"; 
+//$result=mysqli_query($con,$sql);
+// Retrieve hashed password from the database based on username (replace 'users' with your table name)
+$sql = "SELECT password FROM portfolio WHERE username = '$username'";
+$result = $con->query($sql);
+
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $hashed_password = $row['password'];
+
+    // Verify the password
+    if (password_verify($password, $hashed_password)) {
+        session_start();
+    $_SESSION['username'] = "$username, explore our music albums and much more";
+    header('location:homepage.php');
+    } else {
+        echo "Incorrect password or Username, Please try again.";
     }
-   }
+} else {
+    echo "User not found.";
+}
+
+$con->close();
+
 }
 ?>
 
@@ -62,18 +72,18 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 <body class="main-layout">
 
 <?php
-if($login_error){
-    echo '<div class="alert alert-danger" role="alert">
-    <strong>Sorry, this user or password does not exist</strong>
-  </div>';
-}
+//if($login_error){
+   // echo '<div class="alert alert-danger" role="alert">
+   // <strong>Sorry, this user or password does not exist</strong>
+   // </div>';
+   // }
   ?> 
 
 <?php
-if($login_success){
+  if($login_success){
     echo '<div class="alert alert-success" role="alert">
     <strong>Your are now logged in!</strong>
-  </div>';
+     </div>';
 }
   ?> 
 

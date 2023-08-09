@@ -149,46 +149,12 @@ if($executed){
                     <br>Welcome to a world of Songs</h1>
                     <p>Great songs are food for the soul, body and spirit.
                         <br> They can be perfect relief from stress and pressure! You can dowload to enjoy offline</p>
-                    <a href="#">Download Now</a>
                 </div>
 
             </div>
         </div>
 
     </section>
-
-    <!-- music-box  -->
-    <div class="music-box">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                    <div class="for-box">
-                        <i><a href="#all_songs"><img src="icon/icon1.png" alt="icon"/></a></i>
-                        <h3>catalogue of songs</h3>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                    <div class="for-box">
-                        <i><a href="#recommended_song"><img src="icon/icon2.png" alt="icon"/></a></i>
-                        <h3>  songs recommended</h3>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                    <div class="for-box">
-                        <i><a href="#played_songs"><img src="icon/icon3.png" alt="icon"/></a></i>
-                        <h3>list of songs played</h3>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                    <div class="for-box">
-                        <i><a href="#liked_songs"><img src="icon/icon4.png" alt="icon"/></a></i>
-                        <h3>Liked songs Gallery</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- end music-box  -->
 
     <div class="container-fluid">
         <div class="row">
@@ -199,7 +165,6 @@ if($executed){
         </div>
     </div>
 
-    <!-- Download -->
     <div id="screenshot" class="Lastestnews">
         <div class="container">
             <div class="row">
@@ -232,21 +197,8 @@ if($executed){
             </div>
         </div>
     </div>
-    <!-- end Download -->
-
-    <!-- Newsletter -->
-    <div class="Newsletter">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-
-                    <h2>Newsletter</h2>
-                    <div class="row">
-                        <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 padding-right">
-                            <input class="email" placeholder="Enter Your Email" type="text" name="Enter Your Email">
-                        </div>
+                        
                         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 padding-left">
-                            <button class="submit-btn">Subscribe</button>
                         </div>
                     </div>
                 </div>
@@ -340,22 +292,6 @@ if($executed){
     <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
     <script src="js/custom.js"></script>
     <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $(".fancybox").fancybox({
-                openEffect: "none",
-                closeEffect: "none"
-            });
-
-            $(".zoom").hover(function() {
-
-                $(this).addClass('transition');
-            }, function() {
-
-                $(this).removeClass('transition');
-            });
-        });
-    </script>
 </body>
 
 </html>
